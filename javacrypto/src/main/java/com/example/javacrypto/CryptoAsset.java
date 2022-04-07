@@ -3,6 +3,7 @@ package com.example.javacrypto;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "CRYPTOASSET")
@@ -12,6 +13,9 @@ public class CryptoAsset {
 	private String symbol;
 
 	private double total;
+
+	@Transient
+	private double price;
 
 	public String getSymbol() {
 		return symbol;
@@ -27,6 +31,14 @@ public class CryptoAsset {
 
 	public void setTotal(double total) {
 		this.total = total;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 }
